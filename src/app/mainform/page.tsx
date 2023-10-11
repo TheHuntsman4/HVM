@@ -42,11 +42,12 @@ const page = () => {
     console.log(data);
   }
   return (
-    <div className='h-screen mx-24'>
+    <div className='h-screen mx-48'>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(handleSubmit)} className='py-12'>
           <span className=''>Personal Details</span>
           <div className='bg-[#E9EDFF] h-auto w-full px-2 py-4 space-y-4'>
+            <div className='px-4 space-y-4'>
             <FormField
               control={form.control}
               name="name"
@@ -73,7 +74,8 @@ const page = () => {
                 </FormItem>
               )}
             />
-            <div className='w-full p-4 grid grid-cols-2 gap-4'>
+            </div>
+            <div className='w-full px-4 grid grid-cols-2 gap-4'>
               <FormField
                 control={form.control}
                 name="address1"
@@ -81,7 +83,7 @@ const page = () => {
                   <FormItem>
                     <FormLabel>Addresss Line 1</FormLabel>
                     <FormControl>
-                      <Input placeholder="Address Line 1"/>
+                      <Input placeholder="Address Line 1" {...field} className='w-2/3'/>
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -94,7 +96,7 @@ const page = () => {
                   <FormItem>
                     <FormLabel>Addresss Line 2</FormLabel>
                     <FormControl>
-                      <Input placeholder="Address Line 2" {...field}/>
+                      <Input placeholder="Address Line 2" {...field} className='w-2/3'/>
                     </FormControl>
                     <FormMessage />
                   </FormItem>

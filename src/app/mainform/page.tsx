@@ -46,7 +46,7 @@ const page = () => {
       <Form {...form}>
         <form onSubmit={form.handleSubmit(handleSubmit)} className='py-12'>
           <span className=''>Personal Details</span>
-          <div className='bg-[#E9EDFF] h-auto w-full px-2 py-4 space-y-4'>
+          <div className='bg-[#E9EDFF] h-auto w-1/2 px-2 py-4 space-y-4'>
             <div className='px-4 space-y-4'>
             <FormField
               control={form.control}

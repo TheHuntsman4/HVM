@@ -2,8 +2,18 @@
 import VisitingCard from "@/components/visitingCard"
 import { useRef } from "react";
 import { useReactToPrint } from "react-to-print";
+// import { useSearchParams } from "next/navigation";
 
-const page = () => {
+const page = ({ searchParams }:{searchParams:any}) => {
+  console.log(searchParams.name)
+  console.log(searchParams.companyName)
+  console.log(searchParams.email);
+  console.log(searchParams.address1);
+  console.log(searchParams.address2);
+  console.log(searchParams.departmentName);
+  console.log(searchParams.facultyDesignation);
+  console.log(searchParams.facultyName);
+  console.log(searchParams.phoneNumber);
   const handlePrint = useReactToPrint({
     documentTitle: "pass.pdf",
     content: () => pdfRef.current,

@@ -4,9 +4,10 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { formSchema } from '@/validators/auth';
 import { useForm } from 'react-hook-form';
 import { useToast } from '@/components/ui/use-toast';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
+import { useRouter } from 'next/navigation'
 import {
   Form,
   FormControl,
@@ -23,13 +24,17 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import Link from 'next/link';
 
 type Input = z.infer<typeof formSchema>;
 
 
 const page = () => {
   const { toast } = useToast();
+  const router =  useRouter()
+
   const [formStep, setFormStep] = useState(0)
+  const [formData,setFormData]=useState({})
   const form = useForm<Input>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -45,8 +50,9 @@ const page = () => {
     },
   });
 
-  function handleSubmit(data: Input) {
-    console.log(data);
+  function handleSubmit() {
+    setFormData(form.getValues())
+    console.log(formData);
   }
   return (
     <div className='h-screen mx-48'>
@@ -257,11 +263,27 @@ const page = () => {
       {/* The Submit Button */}
       <div className='flex flex-col justify-center items-center'>
         <Button
-          type='button'
-          onClick={() => {
-            console.log(form.getValues());
-          }}
-        >Submit</Button>
+          type='button'>
+      <Link
+        href={{
+          pathname: '/viewpdf',
+          query: {
+            name:form.getValues().name,
+            companyName:form.getValues().companyName,
+            email: form.getValues().email,
+            address1: form.getValues().address1,
+            address2: form.getValues().address2,
+            departmentName: form.getValues().departmentName,
+            facultyDesignation: form.getValues().facultyDesignation,
+            facultyName: form.getValues().facultyName,
+            phoneNumber: form.getValues().phoneNumber,
+          }
+        }}
+      >
+       
+        Submit
+        </Link>
+        </Button>
       </div>
     </div>
   )

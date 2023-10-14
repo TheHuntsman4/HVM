@@ -1,4 +1,4 @@
-const VisitingCard = () => {
+const VisitingCard = ({name, companyName,facultyName,departmentName,facultyDesignation}) => {
     return (
         <div className="text-center h-full w-full bg-white text-black border-2 border-black rounded-sm p-5">
             <div>
@@ -12,15 +12,15 @@ const VisitingCard = () => {
             </div>
             <div className="grid grid-cols-2 gap-3 text-lg">
                 <div className="text-start">Name</div>
-                <div className="text-start">: Some Name</div>
+                <div className="text-start">: {name}</div>
                 <div className="text-start">Company</div>
-                <div className="text-start">: Some Company</div>
+                <div className="text-start">: {companyName}</div>
                 <div className="text-start">Visitng</div>
-                <div className="text-start">: Faculty Name</div>
+                <div className="text-start">: {facultyName}</div>
                 <div className="text-start">Department</div>
-                <div className="text-start">: Department Name</div>
+                <div className="text-start">: {departmentName}</div>
                 <div className="text-start">Designation</div>
-                <div className="text-start">:Faculty Designation</div>
+                <div className="text-start">: {facultyDesignation}</div>
             </div>
         </div>
 

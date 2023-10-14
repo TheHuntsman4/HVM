@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { useReactToPrint } from "react-to-print";
 // import { useSearchParams } from "next/navigation";
 
-const page = ({ searchParams }:{searchParams:any}) => {
+const page = ({ searchParams }: { searchParams: any }) => {
   console.log(searchParams.name)
   console.log(searchParams.companyName)
   console.log(searchParams.email);
@@ -22,7 +22,7 @@ const page = ({ searchParams }:{searchParams:any}) => {
   return (
     <div className="flex flex-col justify-center items-center w-full">
       <div ref={pdfRef}>
-        <VisitingCard />
+        <VisitingCard name={searchParams.name} companyName={searchParams.companyName} departmentName={searchParams.departmentName} facultyDesignation={searchParams.facultyDesignation} facultyName={searchParams.facultyName}/>
       </div>
       <button
         onClick={handlePrint}

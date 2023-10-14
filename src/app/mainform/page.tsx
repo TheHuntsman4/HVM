@@ -152,7 +152,13 @@ const page = () => {
             <div className='bg-[#E9EDFF] h-auto w-full px-2 py-4 space-y-4 mt-4 mb-12'>
               <div className='px-4 space-y-4'>
 
-                {imageSrc === 0 ? <div className=''>this is something</div> : <Image src={imageSrc} alt="webcam capture" width={240} height={240} />}
+                {imageSrc === 0 ?
+                  <div className=''><Button onClick={toggleModal}>Capture Photo</Button></div>
+                  :
+                  <>
+                    <Image src={imageSrc} alt="webcam capture" width={240} height={240} />
+                    <Button onClick={toggleModal}>Try Again</Button>
+                  </>}
               </div>
             </div>
 
@@ -300,9 +306,6 @@ const page = () => {
                       </FormItem>
                     )}
                   />
-
-                  {/* WebCam Image */}
-                  <Button onClick={toggleModal}>Capture Photo</Button>
                 </div>
               </div>
             </div>

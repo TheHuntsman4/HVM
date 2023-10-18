@@ -4,7 +4,7 @@ import { buttonVariants } from './ui/button';
 
 const NavBar = () => {
   return (
-    <div className="top-0 w-full z-10 py-2 border-s-amber-500 border-b ">
+    <div className="h-64px top-0 w-full h-64px z-10 py-2 border-s-amber-500 border-b ">
       <div className='container flex items-center justify-between'>
         <Link href='/'>
           <Image src='/Logo.svg'
